@@ -156,10 +156,10 @@
         <div class="timer-icon">⏰</div>
         <h1>Timer</h1>
         <div class="input-group">
-            <input type="number" id="monthInput" placeholder="Enter Months">
             <input type="number" id="dayInput" placeholder="Enter Days">
             <input type="number" id="hourInput" placeholder="Enter Hours">
             <input type="number" id="minuteInput" placeholder="Enter Minutes">
+            <input type="number" id="secondInput" placeholder="Enter seconds">
         </div>
         <button onclick="timer()">Start Timer</button>
         <h1 id="showTimer"></h1>
@@ -167,26 +167,19 @@
 
     <script>
         function timer() {
-            let month = document.getElementById("monthInput").value
             let day = document.getElementById("dayInput").value
             let hour = document.getElementById("hourInput").value
             let minute = document.getElementById("minuteInput").value
-            let second = 60
+            let second = document.getElementById("secondInput").value
             
-            let remove1 = document.getElementById("monthInput")
-            let remove2 = document.getElementById("dayInput")
-            let remove3 = document.getElementById("hourInput")
-            let remove4 = document.getElementById("minuteInput")
+            let remove1 = document.getElementById("dayInput")
+            let remove2 = document.getElementById("hourInput")
+            let remove3 = document.getElementById("minuteInput")
+            let remove4 = document.getElementById("secondInput")
 
-            minute--
-            
             let showTimer = document.getElementById("showTimer")
 
             setInterval(()=> {
-                if (month > 0 && day == 0 && hour == 0 && minute == 0 && second == 0) {
-                    month--
-                    day = 30
-                }
                 if (day > 0 && hour == 0 && minute == 0 && second == 0) {
                     day--
                     hour = 24
@@ -201,7 +194,7 @@
                 }
                 if (second > 0) {
                     second--
-                    showTimer.innerText = `${month} : ${day} : ${hour} : ${minute} : ${second}`
+                    showTimer.innerText = `${day} : ${hour} : ${minute} : ${second}`
                 }
             }, 1000) 
 
